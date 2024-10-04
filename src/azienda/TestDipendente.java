@@ -5,16 +5,34 @@ import java.util.Scanner;
 public class TestDipendente {
     public static void main(String[] args) {
         Scanner in=new Scanner(System.in);
-        Dipendente m1=new Dipendente("00309",1000.00,7.5);
-        System.out.println(m1.stampa());
-        System.out.println("Inserire ore di straordinario effetuate");
-        System.out.println("Stipendio attuale: "+m1.paga(Integer.parseInt(in.next())));
-        System.out.println("Inserire nuovo numero matricola");
-        m1.setMatricola(in.next());
-        System.out.println("Inserire nuovo stipendio");
-        m1.setStipendio(Double.parseDouble(in.next()));
-        System.out.println("Inserire nuovo stipendio ");
-        m1.setStraordinario(Double.parseDouble(in.next()));
-        System.out.println("Matricola: "+m1.getMatricola()+"\nStipendio: "+m1.getStipendio()+"\nPrezzo per ora di straordinario: "+ m1.getStraordinario());
+        //Array
+        Dipendente [] teamPulizie=new Dipendente[2];
+
+        //Inizializzi
+        for (int i=0;i<teamPulizie.length;i++){
+            System.out.println("Inserire nuovo numero matricola n°"+i);
+            String s=in.next();
+            System.out.println("Inserire nuovo stipendio n°"+i);
+            double s1=Double.parseDouble(in.next());
+            System.out.println("Inserire nuovo straordinario n°"+i);
+            double s2=Double.parseDouble(in.next());
+            teamPulizie[i]=new Dipendente(s,s1,s2);
+            System.out.println(teamPulizie[i].stampa());
+        }
+
+        //Provo altri metodi
+        for (int l=0;l<teamPulizie.length;l++){
+            System.out.println("Inserire ore di straordinario effetuate matricola n°"+teamPulizie[l].getMatricola());
+            System.out.println("Stipendio attuale: matricola n°"+teamPulizie[l].getMatricola()+" è "+teamPulizie[l].paga(Integer.parseInt(in.next())));
+            System.out.println("Inserire nuovo numero matricola");
+            teamPulizie[l].setMatricola(in.next());
+            System.out.println("Inserire nuovo stipendio");
+            teamPulizie[l].setStipendio(Double.parseDouble(in.next()));
+            System.out.println("Inserire nuovo straordinario ");
+            teamPulizie[l].setStraordinario(Double.parseDouble(in.next()));
+            System.out.println("Matricola: "+teamPulizie[l].getMatricola()+"\nStipendio: "+teamPulizie[l].getStipendio()+"\nPrezzo per ora di straordinario: "+ teamPulizie[l].getStraordinario());
+        }
+
+
     }
 }
